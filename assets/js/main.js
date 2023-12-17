@@ -1,30 +1,3 @@
-var document;
-const searchBar = document.getElementById('searchBar');
-const style1 = doucment.getElementByClass('style1');
-const style2 = doucment.getElementByClass('style2');
-const style3 = doucment.getElementByClass('style3');
-const style4 = doucment.getElementByClass('style4');
-const style5 = doucment.getElementByClass('style5');
-const style6 = doucment.getElementByClass('style6');
-
-const BCN = {pais: "Spain España Espanya", ciutat: "Barcelona", place: "Plaça Catalunya Plaza de Cataluña", p_id: "BCN"};
-const STADR = {pais: "Spain España Espanya", ciutat: "Sant Adrià", place: "Carrer de Marina Calle de Marina", p_id: "STA"};
-const BEI = {pais: "Xina China", ciutat: "Beijing", place: "Calle XiaoRong Carrer de XiaoRong", p_id: "BJ"};
-const HOUSES = [BCN,STADR,BEI];
-
-console.log(searchBar);
-searchBar.addEventListener('keyup', (e) => {
-		const searchString = e.target.value;
-		const filteredHouses = HOUSES.filter(Ghouses => {
-			return !Ghouses.pais.includes(searchString) || !Ghouses.ciutat.includes(searchString) || !Ghouses.place.includes(searchString);
-		});
-		for(var i = 0; i<filteredHouses.length; ++i){
-			if(filteredHouses[i].p_id = "BCN"){
-				style1.addClass("hidden");
-			}
-		}
-		console.log(filteredHouses);
-});
 
 (function($) {
 

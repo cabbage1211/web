@@ -36,9 +36,15 @@ section, summary, time, mark, audio, video, price, adress, surface, toilets, bed
 
 }
 
-.hidden{
-	opacity:0;
+.fade{
+    opacity: 0;
 }
+
+
+.hidden{
+	display: none;
+}
+
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -183,8 +189,7 @@ input, select, textarea {
 	}
 
 	#price {
-		margin: 0 0 1em 0;
-		float: right;
+		margin: 0 0 1em 0; float: right;
 	}
 
 	#adress {
@@ -194,18 +199,15 @@ input, select, textarea {
 	}
 
 	#bedrooms {
-		margin: 0 0 0.5em 0;
-		float: left;
+		margin: 0 0 0.5em 0; float: left;
 	}
 
 	#toilets {
-		margin: 0 0 1em 0;
-		float: left;
+		margin: 0 0 1em 0; float: left;
 	}
 
 	#surface {
-		margin: 0 0 0.5em 0;
-		float: right;
+		margin: 0 0 0.5em 0; float: right;
 	}
 	
 
@@ -2749,21 +2751,21 @@ input, select, textarea {
 					}
 
 			.tiles article.style1 > .image:before {
+				transition: opacity 0.1s ease-in-out;
 				background-image: url(images/CASA1.jpg);
 				background-size: 100%;
-				transition: opacity 0.2s;
 			}
 
 			.tiles article.style2 > .image:before {
+				transition: opacity 0.1s ease-in-out;
 				background-image: url(images/CASA2.jpg);
 				background-size: 100%;
-				transition: opacity 0.2s;
 			}
 
 			.tiles article.style3 > .image:before {
+				transition: opacity 0.1s ease-in-out;
 				background-image: url(images/CASA3.jpg);
 				background-size: 100%;
-				transition: opacity 0.2s;
 			}
 
 			.tiles article.style4 > .image:before {
