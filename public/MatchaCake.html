@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+		<title>Matcha Cake</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/CAKE.svg" alt="" /></span><span class="title">Ligia's cookbook</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>Matcha Cake</h1>
+							<div id="myCarousel" class="carousel slide mb-6 pointer-event" data-bs-ride="carousel" style="margin-bottom:20px;">
+								<div class="carousel-indicators">
+								  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+								  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+								  <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
+								</div>
+								<div class="carousel-inner">
+									<div class="carousel-item c-item">
+									  <img src="images/MatchaCake3.png">
+									</div>
+									<div class="carousel-item c-item">
+									  <img src="images/MatchaCake2.png">
+									</div>
+									<div class="carousel-item active c-item">
+									  <img src="images/MatchaCake1.png">
+									</div>
+								</div>
+								<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+								  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								  <span class="visually-hidden">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+								  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+								  <span class="visually-hidden">Next</span>
+								</button>
+							  </div>
+						
+							<h2>Ingredients</h2>
+							<p class=modifiedp margin="right: 100%">3 tbsp matcha powder<br>3 eggs, large<br>¾ tbsp of baking powder<br>160g of cake flour<br>180g of granulated sugar
+							<br>1/8 tsp of salt<br>160g of butter (unsalted)</p>
+							<h2 class="modifiedh1">Recipe</h2>
+							<p>Preheat your oven to 175°C. Grease and flour two 8-inch round cake pans.<br>
+							In a small bowl, whisk together the matcha powder and a couple of tablespoons of hot water to form a smooth paste. Set aside to cool.<br>
+							In a large mixing bowl, cream together the softened butter and cream cheese until smooth and creamy.
+						    <br>Add the granulated sugar to the butter mixture and beat until light and fluffy.<br>Beat in the eggs, one at a time, until well incorporated.
+						    <br>In a separate bowl, sift together the cake flour, baking powder, and salt.<br>
+						    Gradually add the dry ingredients to the wet ingredients, mixing until just combined.<br>Fold in the matcha paste until evenly distributed throughout the batter.<br>
+						    Divide the batter evenly between the prepared cake pans, spreading it out evenly.<br>Bake in the preheated oven for 25-30 minutes, or until a toothpick inserted into the center of the cakes comes out clean.
+						    <br>Allow the cakes to cool in the pans for 10 minutes, then transfer them to a wire rack to cool completely before frosting or serving. Enjoy your delicious matcha cake!</p>
+							<!-- Like button -->
+							<button id="likebutton">Like</button>
+							<input type="hidden" id="recipeCodename" value="matcha">
+							
+							<script src="assets/js/index.js"></script>
+							<script>
+								document.getElementById('likebutton').addEventListener('click', function() {
+									var recipeCodename = document.getElementById('recipeCodename').value;
+									fetch('/like_recipe', {
+										method: 'POST',
+										headers: {
+											'Content-Type': 'application/json'
+										},
+										body: JSON.stringify({ codename: recipeCodename })
+									})
+									.then(response => {
+										if (!response.ok) {
+											return response.json().then(err => { throw new Error(err.error); });
+										}
+										return response.json();
+									})
+									.then(data => {
+										console.log(data);
+									})
+									.catch(error => {
+										console.error('Error:', error);
+										alert('Error: ' + error.message);
+									});
+								});
+							</script>
+				<!-- Footer -->
+					<footer id="footer">
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</html>
